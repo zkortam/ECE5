@@ -1,0 +1,12 @@
+const int sensorPin = A0;
+int lightLevel;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop(){
+  lightLevel = analogRead(sensorPin);
+  Serial.print(“The photoresistor is reading: ”);
+  Serial.println(lightLevel);
+}
