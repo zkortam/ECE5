@@ -1,12 +1,21 @@
 const int sensorPin = A0;
+const int ledPin = 13;
 int lightLevel;
 
 void setup() {
   Serial.begin(9600);
+  pinMode(ledPin, OUTPUT);
 }
 
 void loop(){
+  digitalWrite(ledPin, HIGH);
   lightLevel = analogRead(sensorPin);
-  Serial.print(“The photoresistor is reading: ”);
+  Serial.print("LED ON - The photoresistor is reading: ");
   Serial.println(lightLevel);
+  delay(500);
+  digitalWrite(ledPin, LOW);
+  lightLevel = analogRead(sensorPin);
+  Serial.print("LED OFF - The photoresistor is reading: ");
+  Serial.println(lightLevel);
+  delay(500);
 }
